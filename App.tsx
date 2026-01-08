@@ -17,7 +17,8 @@ import {
   FileText,
   Lock,
   UserCheck,
-  Zap
+  Zap,
+  Quote
 } from 'lucide-react';
 
 // --- Types ---
@@ -96,7 +97,10 @@ const App: React.FC = () => {
   };
 
   const scrollToOffer = () => {
-    document.getElementById('offer')?.scrollIntoView({ behavior: 'smooth' });
+    const element = document.getElementById('offer');
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
   };
 
   return (
@@ -113,11 +117,11 @@ const App: React.FC = () => {
             VOCÊ ESTÁ COBRANDO <span className="text-orange-500">BARATO DEMAIS</span> E NEM PERCEBE
           </h1>
 
-          {/* New Image below H1 */}
-          <div className="w-full max-w-4xl mx-auto mb-12 rounded-2xl overflow-hidden shadow-2xl border-4 border-slate-800/50">
+          {/* User provided image below H1 */}
+          <div className="w-full max-w-4xl mx-auto mb-12 rounded-2xl overflow-hidden shadow-2xl border-4 border-slate-800/50 transform hover:scale-[1.01] transition-transform">
             <img 
-              src="https://images.unsplash.com/photo-1553484771-047a44eee27b?auto=format&fit=crop&q=80&w=1600" 
-              alt="Freelancer Profissional" 
+              src="https://i.ibb.co/jPVPvxFG/Chat-GPT-Image-7-de-jan-de-2026-21-41-44.png" 
+              alt="Guia de Precificação" 
               className="w-full h-auto object-cover"
             />
           </div>
@@ -158,7 +162,7 @@ const App: React.FC = () => {
             ].map((q, i) => (
               <div key={i} className="flex items-start gap-4 p-4 rounded-xl bg-white shadow-sm hover:shadow-md transition-shadow">
                 <XCircle className="text-red-500 shrink-0 mt-1" />
-                <p className="text-slate-700 font-medium leading-relaxed">{q}</p>
+                <p className="text-slate-700 font-medium interleaved leading-relaxed">{q}</p>
               </div>
             ))}
           </div>
@@ -274,6 +278,47 @@ const App: React.FC = () => {
         </div>
       </section>
 
+      {/* Expert Copy Section */}
+      <section className="py-24 px-6 bg-orange-600 text-white relative overflow-hidden">
+        <div className="absolute top-0 left-0 w-full h-full opacity-10 pointer-events-none">
+          <Quote className="absolute -top-10 -left-10 w-64 h-64 rotate-12" />
+          <Quote className="absolute -bottom-10 -right-10 w-64 h-64 -rotate-12" />
+        </div>
+        
+        <div className="max-w-4xl mx-auto text-center relative z-10">
+          <SectionTitle centered dark>O CONHECIMENTO QUE SEPARA O FREELANCER 'PAGA-BOLETO' DO PROFISSIONAL DISPUTADO PELO MERCADO</SectionTitle>
+          
+          <div className="space-y-8 text-xl md:text-2xl leading-relaxed font-medium">
+            <p>
+              Você já sentiu que, não importa o quanto você trabalhe, parece que está sempre <span className="bg-white text-orange-600 px-2 font-black">correndo no mesmo lugar?</span>
+            </p>
+            
+            <p className="text-orange-100">
+              A verdade é cruel: o mercado não paga pelo seu esforço, ele paga pelo seu <span className="text-white font-black underline decoration-4 underline-offset-8">posicionamento</span>.
+            </p>
+            
+            <div className="bg-orange-700/40 p-10 rounded-[3rem] border-2 border-orange-400 shadow-2xl my-12 transform -rotate-1">
+              <p className="text-2xl md:text-3xl font-black mb-6 leading-tight">
+                "Cobrar pouco não é uma 'estratégia de entrada', é uma sentença de morte para o seu negócio."
+              </p>
+              <p className="text-lg text-orange-200">
+                Enquanto você teme perder o cliente por R$50, o seu concorrente está fechando contratos de R$5.000 com o dobro da sua confiança e metade do seu esforço.
+              </p>
+            </div>
+            
+            <p className="text-white">
+              Este guia não é sobre números em uma planilha. É sobre recuperar o <span className="font-black italic">controle do seu tempo</span> e o <span className="font-black italic text-orange-200">respeito pela sua carreira.</span>
+            </p>
+          </div>
+
+          <div className="mt-16">
+            <Button onClick={scrollToOffer} className="bg-white text-orange-600 hover:bg-slate-100 text-2xl px-12 py-6 cta-glow">
+              QUERO SER VALORIZADO HOJE
+            </Button>
+          </div>
+        </div>
+      </section>
+
       {/* Bonus Section */}
       <section className="py-24 bg-slate-50 px-6">
         <div className="max-w-6xl mx-auto">
@@ -305,34 +350,6 @@ const App: React.FC = () => {
               </div>
             ))}
           </div>
-        </div>
-      </section>
-
-      {/* The Math Section */}
-      <section className="py-24 px-6 bg-orange-600 text-white">
-        <div className="max-w-4xl mx-auto text-center">
-          <SectionTitle centered dark>QUANTO VALE SABER PRECIFICAR CORRETAMENTE?</SectionTitle>
-          <div className="bg-orange-700/50 p-8 md:p-12 rounded-3xl border border-orange-500 mb-12 backdrop-blur-sm">
-            <p className="text-2xl mb-8 leading-relaxed">Se você cobra <span className="font-black text-white">R$50/h</span> e deveria cobrar <span className="font-black text-white">R$150/h</span>...</p>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
-              <div className="p-4 bg-orange-800/50 rounded-xl">
-                <p className="text-sm uppercase font-bold text-orange-200 mb-1">Por Semana</p>
-                <p className="text-3xl font-black">- R$ 2.000</p>
-              </div>
-              <div className="p-4 bg-orange-800/50 rounded-xl">
-                <p className="text-sm uppercase font-bold text-orange-200 mb-1">Por Mês</p>
-                <p className="text-3xl font-black">- R$ 8.000</p>
-              </div>
-              <div className="p-4 bg-orange-800/50 rounded-xl">
-                <p className="text-sm uppercase font-bold text-orange-200 mb-1">Por Ano</p>
-                <p className="text-4xl font-black">- R$ 96.000</p>
-              </div>
-            </div>
-            <p className="text-xl font-bold">Você está deixando de ganhar QUASE 100 MIL REAIS simplesmente por não saber quanto cobrar.</p>
-          </div>
-          <Button onClick={scrollToOffer} className="bg-white text-orange-600 hover:bg-slate-100 cta-glow">
-            PARAR DE PERDER DINHEIRO AGORA
-          </Button>
         </div>
       </section>
 
