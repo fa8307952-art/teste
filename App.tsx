@@ -105,7 +105,7 @@ const App: React.FC = () => {
 
   return (
     <div className="min-h-screen">
-      {/* Sticky Header with Timer Only (Price removed) */}
+      {/* Sticky Header with Timer Only */}
       <div className="fixed top-0 left-0 w-full z-50 bg-red-600 text-white py-2 text-center text-sm font-bold animate-pulse shadow-lg">
         🚨 ATENÇÃO: Esta oferta especial expira em {formatTime(timeLeft)}
       </div>
@@ -162,7 +162,7 @@ const App: React.FC = () => {
             ].map((q, i) => (
               <div key={i} className="flex items-start gap-4 p-4 rounded-xl bg-white shadow-sm hover:shadow-md transition-shadow">
                 <XCircle className="text-red-500 shrink-0 mt-1" />
-                <p className="text-slate-700 font-medium interleaved leading-relaxed">{q}</p>
+                <p className="text-slate-700 font-medium leading-relaxed">{q}</p>
               </div>
             ))}
           </div>
@@ -242,20 +242,13 @@ const App: React.FC = () => {
             <div className="absolute top-0 right-0 w-64 h-64 bg-orange-600/10 blur-[100px] rounded-full"></div>
             <div className="relative z-10 flex flex-col md:flex-row items-center gap-10">
               <div className="md:w-1/3 flex justify-center">
-                 <div className="w-full max-w-[280px] bg-white rounded-xl shadow-2xl p-4 rotate-3 transform transition-transform hover:rotate-0">
-                    <div className="h-40 bg-slate-200 rounded flex items-center justify-center text-slate-400">
-                       <FileText size={64} />
-                    </div>
-                    <div className="mt-4 space-y-2">
-                       <div className="h-4 w-3/4 bg-slate-200 rounded"></div>
-                       <div className="h-4 w-1/2 bg-slate-100 rounded"></div>
-                    </div>
-                    <div className="mt-6 flex justify-between items-center">
-                       <div className="h-8 w-20 bg-orange-500 rounded"></div>
-                       <div className="flex -space-x-1">
-                          {[1,2,3].map(i => <div key={i} className="w-6 h-6 rounded-full bg-slate-200 border border-white"></div>)}
-                       </div>
-                    </div>
+                 {/* Replaced placeholder with the user-provided image */}
+                 <div className="w-full max-w-[320px] transform rotate-3 transition-transform hover:rotate-0 hover:scale-105">
+                    <img 
+                      src="https://i.ibb.co/tMnBK7RB/Chat-GPT-Image-7-01-2026-22-01-10.png" 
+                      alt="Product Mockup" 
+                      className="w-full h-auto rounded-2xl shadow-2xl border-2 border-slate-700"
+                    />
                  </div>
               </div>
               <div className="md:w-2/3 text-left">
@@ -404,7 +397,7 @@ const App: React.FC = () => {
               </div>
               <div className="text-left">
                 <h4 className="font-bold text-xl mb-1 uppercase tracking-tighter">Garantia Blindada de 7 Dias</h4>
-                <p className="text-slate-400 text-sm">Se em 7 dias você não conseguir calcular seu preço com segurança ou não achar que vale 10x o investimento, eu devolvo 100% do seu dinheiro. Sem perguntas.</p>
+                <p className="text-slate-400 text-sm">Se em 7 dias você não conseguir calcular seu preço com segurança ou não achar que vale 10x o investmento, eu devolvo 100% do seu dinheiro. Sem perguntas.</p>
               </div>
             </div>
           </div>
